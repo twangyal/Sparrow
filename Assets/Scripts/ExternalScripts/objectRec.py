@@ -1,5 +1,3 @@
-import pathlib
-import textwrap
 import sys
 
 import google.generativeai as genai
@@ -12,9 +10,6 @@ import PIL.Image
 from flask import Flask
 from flask_cors import CORS
 from flask import request, jsonify
-
-def returnString(result):
-  return str(result)
 
 @app.route('/objectRec', methods=['POST'])
 def objectRec():
@@ -30,7 +25,6 @@ def objectRec():
   response = model.generate_content(["Tell me what object is this. Keep it in a single word.", img], stream=True)
   response.resolve()
   print(response.text)
-  returnString(response.text)
 
 if __name__ == '__main__':
   app = Flask(__name__)
