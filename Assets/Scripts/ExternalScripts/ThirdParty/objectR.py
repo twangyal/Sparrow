@@ -51,6 +51,7 @@ def transcribe_audio(filename):
     file_path = "/Users/tseringwangyal/Desktop/Projects/Personal/Unity/Sparrow/Assets/Scripts/ExternalScripts/ThirdParty/recordedAudio.wav"
     
     os.remove(file_path)
+
     
     keep_convo("conversation.txt")
 

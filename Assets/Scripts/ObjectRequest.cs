@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class ObjectRequest : MonoBehaviour{
 
     public void StartConversation(String language){
-        StartCoroutine(GetRequest("http://127.0.0.1:5000/lang/English"));
+        StartCoroutine(GetRequest("http://127.0.0.1:5000/lang/Spanish"));
     }
 
     IEnumerator GetRequest(string uri){

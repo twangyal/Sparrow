@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
+using UnityEngine.SceneManagement;
 
 public class movement : MonoBehaviour
 {
@@ -59,6 +60,12 @@ public class movement : MonoBehaviour
         {
             nearNPC = true;
             NPC = other.gameObject;
+        }
+        if(other.tag == "DoorIn"){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if(other.tag == "DoorOut"){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
     private void OnTriggerExit(Collider other)
