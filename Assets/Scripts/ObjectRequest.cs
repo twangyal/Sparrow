@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class ObjectRequest : MonoBehaviour{
-    void Start(){
-        StartCoroutine(GetRequest("http://127.0.0.1:5000/"));
+
+    public void StartConversation(String language){
+        StartCoroutine(GetRequest("http://127.0.0.1:5000/lang/English"));
     }
 
     IEnumerator GetRequest(string uri){
@@ -17,9 +19,9 @@ public class ObjectRequest : MonoBehaviour{
                 Debug.Log("Error: " + webRequest.error);
             
             }else{
+            
                 Debug.Log(webRequest.downloadHandler.text);
             }
         }
-
     }
 }

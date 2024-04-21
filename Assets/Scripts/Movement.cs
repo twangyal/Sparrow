@@ -16,6 +16,8 @@ public class movement : MonoBehaviour
     public GameObject cam;
     Vector3 velocity;
     bool isGrounded;
+    bool nearNPC = false;
+    public GameObject NPC;
     
 
     void Update()
@@ -43,14 +45,30 @@ public class movement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
+        if(nearNPC && Input.GetKeyDown(KeyCode.E))
+        {
+            NPC.GetComponent<Talk>().Recording();
+            NPC.GetComponent<ObjectRequest>().StartConversation("English");
+        }
+
     }
     private void OnTriggerEnter(Collider other)
     {
         cam.GetComponent<PlayerLook>().TriggerEnter(other); //when you enter the collider
+        if(other.tag == "NPC")
+        {
+            nearNPC = true;
+            NPC = other.gameObject;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         cam.GetComponent<PlayerLook>().TriggerExit(other);//when you exit the collider
+        if(other.tag == "NPC")
+        {
+            nearNPC = false;
+            NPC = null;
+        }
     }
 }
 
