@@ -75,6 +75,10 @@ public class PlayerLook : MonoBehaviour
             
             pickupAble = true;
         }
+        else if(!isHolding){
+            pickupAble = false;
+        
+        }
     }
     public void TriggerExit(Collider other)
     {

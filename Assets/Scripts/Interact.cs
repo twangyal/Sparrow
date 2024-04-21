@@ -46,7 +46,6 @@ public class Interact : MonoBehaviour
     {
         var outline = GetComponent<Outline>();
         outline.enabled = false;
-        transform.GetComponent<Renderer>().material = originalMaterial;
         itemName.enabled = false;
         
     }
