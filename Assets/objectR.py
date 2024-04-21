@@ -7,9 +7,9 @@ from IPython.display import Markdown
 import PIL.Image
 app = Flask(__name__)
 
-@app.route("/")
-def get_prompt1():
-  file = 'image.jpg'
+@app.route("/<adress>")
+def get_prompt(adress):
+  file = adress
 
   img = PIL.Image.open(file)
 
